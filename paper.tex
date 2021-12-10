@@ -1,0 +1,161 @@
+\documentclass[a4paper]{report} 
+
+\usepackage{subfiles}
+\usepackage{blindtext}
+\usepackage[utf8]{inputenc}
+\usepackage{lipsum}
+\usepackage[titles]{tocloft}
+\usepackage[compact]{titlesec}
+\usepackage[hidelinks,breaklinks]{hyperref}
+\usepackage{subcaption}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[natbibapa]{apacite}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{physics}
+\usepackage{selinput}
+\usepackage[T1]{fontenc}
+\usepackage{import}
+\usepackage[english]{babel} 
+\usepackage{amsmath,amssymb}
+\usepackage{txfonts}
+\usepackage{mathdots}
+\usepackage[classicReIm]{kpfonts}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage{etoolbox}
+\usepackage{cancel}
+\usepackage{babel}
+\usepackage[autostyle]{csquotes}
+\usepackage{epigraph}
+\usepackage{tikz}
+\usepackage{todonotes}
+\usepackage[acronym,nomain]{glossaries}
+\usepackage{caption}
+\usepackage{wrapfig} 
+\usepackage{verbatim}
+\usepackage[bottom]{footmisc}
+\usepackage{IEEEtrantools}
+\usepackage[version=4]{mhchem}
+\usepackage{gensymb}
+\usepackage{tabularx}
+\usepackage{adjustbox}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{alphalph}
+\usepackage{afterpage}
+\usepackage{alphabeta}
+\usepackage{multirow}
+%\usepackage{urlbst}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{natbib}
+\usepackage[numbered,framed]{matlab-prettifier}
+% \usepackage[sort&compress,numbers]{natbib}
+\usetikzlibrary{positioning}
+\geometry{a4paper, left=30mm, right=30mm, top=30mm, bottom=30mm}
+\SelectInputMappings{%
+	adieresis={ä},
+	eacute={é}
+	}
+
+\titleformat{\chapter}[hang]{\huge\bfseries}{\thechapter.}{1em}{}
+\titlespacing*{\chapter}{0pt}{-3em}{1.1\parskip}
+\titlelabel{\thetitle\quad}
+
+\setcounter{secnumdepth}{4}
+
+% Styling
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{} 
+\cfoot{\thepage}
+\rfoot{}
+\renewcommand\thechapter{\arabic{chapter}}
+\renewcommand{\thepart}{\arabic{part}}
+\renewcommand*\thesection{\thechapter.\arabic{section}}
+\renewcommand*\thesection{\thechapter.\arabic{section}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+    \newenvironment{dedication}
+         {\vspace{6ex}\begin{quotation}\begin{center}\begin{em}}
+         {\par\end{em}\end{center}\end{quotation}}
+
+\makeatletter
+\def \@makechapterhead#1{%
+  \vspace*{0\p@}%
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \Huge\bfseries\space\thechapter.\space
+    \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    \vskip 5\p@
+  }}
+\makeatother
+
+\titleformat{\chapter}
+  {\Large\bfseries} % format
+  {}                % label
+  {0pt}             % sep
+  {\huge}           % before-code
+
+%document
+\begin{document}
+
+\subfile{Frontpage/Frontpage}
+\cleardoublepage
+
+\chapter*{Preface}
+\subfile{Preface/preface}
+\addcontentsline{chapter}{Preface}
+\cleardoublepage
+
+\renewcommand*\contentsname{Table of Contents}
+\tableofcontents 
+\cleardoublepage
+
+\chapter{String Theory}
+\subfile{String Theory/string theory}
+\cleardoublepage
+
+\chapter{M-Theory}
+\subfile{M-Theory/m-theory}
+\cleardoublepage
+
+\chapter{Computational Problems}
+\subfile{Computational Problems/computational problems}
+\cleardoublepage
+
+\chapter{Conclusion}
+\subfile{Conclusion/Conclusion}
+\cleardoublepage
+
+\chapter{Discussion}
+\subfile{Discussion/discussion}
+\cleardoublepage
+
+\chapter{Recommendations}
+\subfile{Recommendations/recommendations}
+\cleardoublepage
+
+\bibliographystyle{apacite}
+\bibliography{sources}
+\addcontentsline{toc}{chapter}{References}
+
+%End of Document
+\pagenumbering{roman}
+\setcounter{page}{1}
+\cleardoublepage
+
+\end{document}
